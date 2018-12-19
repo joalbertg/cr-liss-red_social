@@ -1,24 +1,43 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# dotenv
+To load .env environment variables into developing ENV.
+Environment variables that can be called in the configuration files.
 
-Things you may want to cover:
+## Installation and usage
 
-* Ruby version
+### [](https://github.com/bkeepers/dotenv#rails)Rails
 
-* System dependencies
+**1.-** Add this line to the top of your application's Gemfile:
 
-* Configuration
+  gem 'dotenv-rails', groups: [:development, :test]
 
-* Database creation
+**2.-** And then execute:
 
-* Database initialization
+  $ bundle
 
-* How to run the test suite
+**3.-** Create an **.env** file in the root of the application.
 
-* Services (job queues, cache servers, search engines, etc.)
+**4.-** Within the **.env** file we add what we need to be the environment variables.
 
-* Deployment instructions
+  Example:
+    DATABASE=db_name
+    DB_USERNAME=db_username
+    DB_PASSWORD=db_password
 
-* ...
+**5.-** These variables are going to be used in the **database.yml** file
+
+  Example:
+    database: <%= ENV['DATABASE'] %>
+    username: <%= ENV['DB_USERNAME'] %>
+    password: <%= ENV['DB_PASSWORD'] %>
+
+**6.-** Start the server ($ rails s) and it will work without having to modify the files with information that could compromise.
+
+**7.-** Add the **.env** file in the ***.gitignore*** file
+
+**Note:**
+  This project uses environment variables in the following files:
+
+  config/database.yml
+  config/environments/development.rb
