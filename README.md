@@ -73,7 +73,7 @@
     /app/assets/stylesheets/colors.scss
   ```
 
-## Configuration of strong params 
+## Configuration of strong params for the user
   ```sh
     /app/controllers/users/omniauth_callbacks_controller.rb
   ```
