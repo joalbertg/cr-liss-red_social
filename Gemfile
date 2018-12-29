@@ -12,6 +12,8 @@ gem 'rails', '~> 5.0.7', '>= 5.0.7.1'
 gem 'coffee-rails', '~> 4.2'
 # Authentication
 gem 'devise', '~> 4.5'
+# grid - view
+gem 'flexbox_rb'
 # views 
 gem 'haml-rails', '~> 1.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -20,6 +22,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
+# login/authentication with facebook
+gem 'omniauth-facebook'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

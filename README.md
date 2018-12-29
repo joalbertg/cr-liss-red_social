@@ -2,6 +2,7 @@
 
 # dotenv
   To load .env environment variables into developing ENV.
+  
   Environment variables that can be called in the configuration files.
 
 ## Installation and usage
@@ -37,9 +38,56 @@
 
   **7.-** Add the **.env** file in the ***.gitignore*** file
 
-  **Note:**
+
+  **NOTE:**
     This project uses environment variables in the following files:
   ```sh
     config/database.yml
     config/environments/development.rb
+  ```
+
+## Authentication with Facebook
+  
+  *[https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview]
+  
+  ```sh
+    gem 'omniauth-facebook'
+  ```
+
+  * Add a new OmniAuth provider with APP_ID & APP_SECRET
+  ```sh
+    config/initializers/devise.rb
+  ```
+
+## Styles with Material Design Lite
+  
+  *[https://getmdl.io/]
+
+  ```sh
+    /app/views/layouts/application.html.erb
+  ```
+
+## Colors with SCSS
+
+  ```sh
+    /app/assets/stylesheets/colors.scss
+  ```
+
+## Configuration of strong params 
+  ```sh
+    /app/controllers/users/omniauth_callbacks_controller.rb
+  ```
+
+## Configuring routes for authenticated and unauthenticated users
+ ```sh
+    /config/routes.rb
+  ```
+
+## Navigation with Material Design Lite
+
+  *[https://getmdl.io/components/index.html#layout-section]
+
+  ```sh
+    /app/views/layouts/application.html.erb
+    /app/views/partials/_nav.haml
   ```
