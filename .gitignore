@@ -20,6 +20,8 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-#
+# This file tells the RVM what gems and what ruby version to use in that application.
 .rvmrc
+
+# File to add the environment variables
 .env
