@@ -1,4 +1,9 @@
-# README
+# Project Social Red
+
+### Version
+#### ruby   '2.3.0'
+#### rails  '5.0.7.1'
+
 
 # dotenv
   To load .env environment variables into developing ENV.

@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable,
           omniauth_providers: %i[facebook]
 
+  validates :username, presence: true, uniqueness: true, length: { in: 3..12 }
+  
   def self.from_omniauth(auth)
   # search if there is a user with these credentials
   # if it does not exist, create a new user with provider and uid
