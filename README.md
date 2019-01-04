@@ -1,4 +1,9 @@
-# README
+# Project Social Red
+
+### Version
+#### ruby   '2.3.0'
+#### rails  '5.0.7.1'
+
 
 # dotenv
   To load .env environment variables into developing ENV.
@@ -48,7 +53,7 @@
 
 ## Authentication with Facebook
   
-  *[https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview]
+  https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview
   
   ```sh
     gem 'omniauth-facebook'
@@ -61,7 +66,7 @@
 
 ## Styles with Material Design Lite
   
-  *[https://getmdl.io/]
+  https://getmdl.io/
 
   ```sh
     /app/views/layouts/application.html.erb
@@ -85,9 +90,48 @@
 
 ## Navigation with Material Design Lite
 
-  *[https://getmdl.io/components/index.html#layout-section]
+  https://getmdl.io/components/index.html#layout-section
 
   ```sh
     /app/views/layouts/application.html.erb
     /app/views/partials/_nav.haml
+  ```
+## Test
+
+  ```sh
+    group :development, :test do
+      # It allows to create objects of the BD for tests
+      gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
+      # Test frameworks
+      gem 'rspec-rails', '~> 3.8', '>= 3.8.1'
+      # Specific help methods for Rails validations
+      gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
+    end
+  ```
+  Download and install by running:
+  ```sh
+    bundle install
+  ```
+  Initialize the spec/ directory (where specs will reside) with:
+  ```sh
+    rails generate rspec:install
+  ```
+  This adds the following files which are used for configuration:
+  ```sh
+    .rspec
+    spec/spec_helper.rb
+    spec/rails_helper.rb
+  ```
+  Use the **rspec** command to run your specs
+  ```sh
+    rails generate rspec:model User
+  ```
+  ```sh
+    /spec/rails_helper.rb
+    Shoulda::Matchers.configure do |config|
+      config.integrate do |with|
+        with.test_framework :rspec
+        with.library :rails
+      end
+    end
   ```
