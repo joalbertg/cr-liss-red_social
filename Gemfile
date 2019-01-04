@@ -50,9 +50,15 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # configuration of local environment variables
   gem 'dotenv-rails'
+  # It allows to create objects of the BD for tests
+  gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
   # debug
   gem 'pry-nav', '~> 0.2.4'
   gem 'pry-rails'
+  # Test frameworks
+  gem 'rspec-rails', '~> 3.8', '>= 3.8.1'
+  # Specific help methods for Rails validations
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
 end
 
 group :development do
