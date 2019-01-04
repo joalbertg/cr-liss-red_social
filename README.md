@@ -53,7 +53,7 @@
 
 ## Authentication with Facebook
   
-  *[https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview]
+  https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview
   
   ```sh
     gem 'omniauth-facebook'
@@ -66,7 +66,7 @@
 
 ## Styles with Material Design Lite
   
-  *[https://getmdl.io/]
+  https://getmdl.io/
 
   ```sh
     /app/views/layouts/application.html.erb
@@ -90,7 +90,7 @@
 
 ## Navigation with Material Design Lite
 
-  *[https://getmdl.io/components/index.html#layout-section]
+  https://getmdl.io/components/index.html#layout-section
 
   ```sh
     /app/views/layouts/application.html.erb
