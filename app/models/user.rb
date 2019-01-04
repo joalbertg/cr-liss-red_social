@@ -6,6 +6,7 @@ class User < ApplicationRecord
           omniauth_providers: %i[facebook]
 
   validates :username, presence: true, uniqueness: true, length: { in: 3..12 }
+  validate :validate_username_regex
   
   def self.from_omniauth(auth)
   # search if there is a user with these credentials
@@ -17,6 +18,14 @@ class User < ApplicationRecord
       end
       user.password = Devise.friendly_token[0,20]
       # create a string that contains random characters
+    end
+  end
+
+  private
+
+  def validate_username_regex
+    unless username =~ /\A[a-zA-Z]*[a-zA-Z][a-zA-Z0-9_]*\z/
+      errors.add(:username, "debe iniciar con una letra y contener sólo letras, números y guión bajo.")
     end
   end
 end
