@@ -1,6 +1,6 @@
 # Project Social Red
 
-### Version
+### VERSION
 #### ruby   '2.3.0'
 #### rails  '5.0.7.1'
 
