@@ -30,6 +30,8 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
+        format.js { render :show } # _post.html.haml
+        #format.js {render :show, status: :created, location: @post} # _post.haml
       else
         format.html { render :new }
         format.json { render json: @post.errors, status: :unprocessable_entity }
