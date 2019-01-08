@@ -1,5 +1,7 @@
 class MainController < ApplicationController
-  def home; end
+  def home
+    @post = Post.new
+  end
 
   def unregistered; end
 

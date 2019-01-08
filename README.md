@@ -135,3 +135,6 @@
       end
     end
   ```
+
+### Annotate
+  Add a comment with the structure that the model/table has 
