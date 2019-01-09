@@ -10,6 +10,8 @@ end
 gem 'rails', '~> 5.0.7', '>= 5.0.7.1'
 # Add a comment with the structure that the model/table has
 gem 'annotate', '~> 2.7', '>= 2.7.4'
+# It is a gem that allows us to edit the fields without having to move from place.
+gem 'best_in_place', '~> 3.1', '>= 3.1.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Authentication

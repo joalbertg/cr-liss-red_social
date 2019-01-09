@@ -138,3 +138,12 @@
 
 ### Annotate
   Add a comment with the structure that the model/table has 
+  ```sh
+    gem 'annotate', '~> 2.7', '>= 2.7.4'
+  ```
+
+### Best in place
+  It is a gem that allows to edit the fields without having to move from place.
+  ```sh
+    gem 'best_in_place', '~> 3.1', '>= 3.1.1'
+  ```
