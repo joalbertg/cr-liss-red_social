@@ -6,8 +6,10 @@
         .row.middle-xs
           =grid class:"col-xs" do
             %h1.no-margin.medium
-              %span= best_in_place @user, :name
-              %span= best_in_place @user, :email
+              %span= best_in_place_if current_user == @user, @user, :name
+              %span= best_in_place_if current_user == @user, @user, :email
+            %p
+              %span= best_in_place_if current_user == @user, @user, :username
           =grid xs:4, sm:2 do
             / Botón agregar amigo
       .large-padding
@@ -19,7 +21,7 @@
             Posts
         .row.center-xs
           =grid xs:8, md:10 do
-            %span= best_in_place @user, :bio
+            %span= best_in_place_if current_user == @user, @user, :bio
     .top-space
       =form_for @user do |f|
         =f.text_field :username
