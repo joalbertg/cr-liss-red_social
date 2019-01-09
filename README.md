@@ -1,6 +1,6 @@
 # Project Social Red
 
-### Version
+### VERSION
 #### ruby   '2.3.0'
 #### rails  '5.0.7.1'
 
@@ -135,3 +135,6 @@
       end
     end
   ```
+
+### Annotate
+  Add a comment with the structure that the model/table has 

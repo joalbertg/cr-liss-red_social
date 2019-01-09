@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  username               :string           default(""), not null
+#  name                   :string
+#  last_name              :string
+#  bio                    :text
+#  uid                    :string
+#  provider               :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -8,6 +28,8 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { in: 3..12 }
   validate :validate_username_regex
   
+  has_many :posts
+
   def self.from_omniauth(auth)
   # search if there is a user with these credentials
   # if it does not exist, create a new user with provider and uid
