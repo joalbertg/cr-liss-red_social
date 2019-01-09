@@ -11,11 +11,17 @@ html, body {
 .no-margin {
   margin: 0;
 }
+.medium {
+  font-size: 1.2em;
+}
 .large-padding {
   padding: 10px 15px;
 }
 .big-padding {
   padding: 2em 1.5em;
+}
+.border-bottom {
+  border-bottom: 1px solid currentColor;
 }
 .top-space {
   margin-top: 1em;

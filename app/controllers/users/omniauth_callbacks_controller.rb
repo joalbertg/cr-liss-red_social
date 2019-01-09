@@ -1,5 +1,8 @@
 module Users
   class OmniauthCallbacksController < ApplicationController
+    # < Devise::OmniauthCallbacksController 
+    skip_before_action :authenticate_user!
+
     def facebook
       #raise request.env['omniauth.auth'].to_yaml
       @user = User.from_omniauth(request.env['omniauth.auth'])

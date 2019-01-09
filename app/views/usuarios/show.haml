@@ -1,0 +1,22 @@
+.row.center-xs
+  =grid xs:10,sm:8,md:6,lg:4 do
+    .white.mdl-shadow--2dp.top-space.relative
+      / Cover usuario
+      %section.border-bottom.top-space
+        .row.middle-xs
+          =grid class:"col-xs" do
+            %h1.no-margin.medium
+              =@user.name
+              =@user.email
+          =grid xs:4, sm:2 do
+            / Botón agregar amigo
+      .large-padding
+        .row
+          =grid class:"col-xs" do
+            Seguidores
+          =grid class:"col-xs" do
+            =@user.posts.count
+            Posts
+        .row.center-xs
+          =grid xs:8, md:10 do
+            =@user.bio
