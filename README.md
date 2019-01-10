@@ -12,9 +12,10 @@
 
 ## Installation and usage
 
-### [](https://github.com/bkeepers/dotenv#rails)Rails
+### Rails
 
-  **1.-** Add this line to the top of your application's Gemfile:
+  **1.-** [Dotenv](https://github.com/bkeepers/dotenv#rails)
+  . Add this gem to the top of your application's Gemfile: 
   ```sh
     gem 'dotenv-rails', groups: [:development, :test]
   ```
@@ -51,9 +52,7 @@
     config/environments/development.rb
   ```
 
-## Authentication with Facebook
-  
-  https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview
+## [Authentication with Facebook](https://github.com/plataformatec/devise/wiki/OmniAuth:-Overview)
   
   ```sh
     gem 'omniauth-facebook'
@@ -64,9 +63,7 @@
     config/initializers/devise.rb
   ```
 
-## Styles with Material Design Lite
-  
-  https://getmdl.io/
+## Styles with [Material Design Lite](https://getmdl.io/)
 
   ```sh
     /app/views/layouts/application.html.erb
@@ -88,15 +85,18 @@
     /config/routes.rb
   ```
 
-## Navigation with Material Design Lite
-
-  https://getmdl.io/components/index.html#layout-section
-
+## Navigation with [Material Design Lite](https://getmdl.io/components/index.html#layout-section)
   ```sh
     /app/views/layouts/application.html.erb
     /app/views/partials/_nav.haml
   ```
 ## Test
+
+  - [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails)
+
+  - [rspec-rails](https://github.com/rspec/rspec-rails)
+
+  - [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers)
 
   ```sh
     group :development, :test do
@@ -136,19 +136,25 @@
     end
   ```
 
-### Annotate
+### [Annotate](https://github.com/ctran/annotate_models)
   Add a comment with the structure that the model/table has 
   ```sh
     gem 'annotate', '~> 2.7', '>= 2.7.4'
   ```
 
-### Best in place
+### [Best in place](http://github.com/bernat/best_in_place)
   It is a gem that allows to edit the fields without having to move from place.
   ```sh
     gem 'best_in_place', '~> 3.1', '>= 3.1.1'
   ```
+  ```sh
+    /app/assets/javascripts/main.coffee
 
-### Paperclip
+    $(document).on "page:load page:fetch ready", ()->
+      $(".best_in_place").best_in_place()
+  ```
+
+### [Paperclip](https://github.com/JangoSteve/remotipart)
   To attach files
   ```sh
     gem 'paperclip', '~> 6.1'
@@ -183,8 +189,16 @@
       ...  
     end
   ```
-### Remotipart
+### [Remotipart](https://github.com/JangoSteve/remotipart)
   This gem enabling asynchronous file uploads using the form with the multipart option.
   ```sh
     gem 'remotipart', '~> 1.4', '>= 1.4.2'
+  ```
+  ```sh
+    /app/assets/javascripts/application.js
+
+    //= require jquery
+    //= require best_in_place
+    //= require jquery_ujs
+    //= require jquery.remotipart
   ```
