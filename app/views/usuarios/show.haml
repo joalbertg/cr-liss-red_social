@@ -1,8 +1,11 @@
 .row.center-xs
   =grid xs:10,sm:8,md:6,lg:4 do
     .white.mdl-shadow--2dp.top-space.relative
-      / Cover usuario
+      / Cover
       .big-padding.white-text.text-left.cover{ style:"background-image:url(#{ @user.cover.url(:medium) })" }
+        / Avatar
+        .top-space
+          =circle_img(@user.avatar.url(:medium), 100)
       %section.border-bottom.top-space
         .row.middle-xs
           =grid class:"col-xs" do
