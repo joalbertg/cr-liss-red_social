@@ -34,6 +34,8 @@ class UsuariosController < ApplicationController
                                   :last_name, 
                                   :username, 
                                   :email, 
-                                  :bio)
+                                  :bio,
+                                  :avatar,
+                                  :cover)
   end
 end
