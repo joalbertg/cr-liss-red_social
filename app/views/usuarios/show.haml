@@ -28,9 +28,7 @@
           =grid xs:8, md:10 do
             %span= best_in_place_if current_user == @user, @user, :bio
       .top-space
-        =form_for @user do |f|
-          %div{style:"display:none;"}
-            =f.file_field :avatar
-            =f.file_field :cover
-          .top-space
-            =f.submit "Enviar"
+        =form_for @user, remote: true do |f|
+          =f.file_field :avatar, class: "remotipart"
+        =form_for @user, remote: true do |f|
+          =f.file_field :cover, class: "remotipart"

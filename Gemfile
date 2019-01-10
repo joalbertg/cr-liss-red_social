@@ -32,6 +32,8 @@ gem 'omniauth-facebook'
 gem 'paperclip', '~> 6.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+# This gem enabling asynchronous file uploads using the form with the multipart option.
+gem 'remotipart', '~> 1.4', '>= 1.4.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

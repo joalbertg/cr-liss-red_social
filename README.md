@@ -183,3 +183,8 @@
       ...  
     end
   ```
+### Remotipart
+  This gem enabling asynchronous file uploads using the form with the multipart option.
+  ```sh
+    gem 'remotipart', '~> 1.4', '>= 1.4.2'
+  ```
