@@ -147,3 +147,39 @@
   ```sh
     gem 'best_in_place', '~> 3.1', '>= 3.1.1'
   ```
+
+### Paperclip
+  To attach files
+  ```sh
+    gem 'paperclip', '~> 6.1'
+
+    $ bundle
+    $ rails g migration add_attachment_cover_and_avatar_to_users
+  ```
+  Modify migration
+  ```sh
+    class AddAttachmentCoverAndAvatarToUsers < ActiveRecord::Migration[5.0]
+      def change
+        add_attachment :users, :avatar
+        add_attachment :users, :cover
+      end
+    end
+  ```
+  ```sh
+    $ rails db:migrate
+  ```
+  ```sh
+    class User < ApplicationRecord
+      ...
+      has_attached_file :avatar, 
+                        styles: { medium: "300x300>", thumb: "100x100>" }, 
+                        default_url: "/images/:style/missing_avatar.png"
+      validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
+      has_attached_file :cover, 
+                        styles: { medium: "800x600>", thumb: "400x300>" }, 
+                        default_url: "/images/:style/missing_cover.png"
+      validates_attachment_content_type :cover, content_type: /\Aimage\/.*\z/
+      ...  
+    end
+  ```

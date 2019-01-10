@@ -28,6 +28,8 @@ gem 'jquery-rails'
 gem 'pg', '>= 0.18', '< 2.0'
 # login/authentication with facebook
 gem 'omniauth-facebook'
+# library to attach files
+gem 'paperclip', '~> 6.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
