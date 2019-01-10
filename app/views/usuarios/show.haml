@@ -2,10 +2,10 @@
   =grid xs:10,sm:8,md:6,lg:4 do
     .white.mdl-shadow--2dp.top-space.relative
       / Cover
-      .big-padding.white-text.text-left.cover.relative{ style:"background-image:url(#{ @user.cover.url(:medium) })" }
+      .big-padding.white-text.text-left.cover.relative#user-cover{ style:"background-image:url(#{ @user.cover.url(:medium) })" }
         / Avatar
         =render "usuarios/menu_avatar"
-        .top-space
+        .top-space#user-avatar
           =circle_img(@user.avatar.url(:medium), 100)
       %section.border-bottom.top-space
         .row.middle-xs
