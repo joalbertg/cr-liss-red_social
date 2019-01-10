@@ -2,8 +2,9 @@
   =grid xs:10,sm:8,md:6,lg:4 do
     .white.mdl-shadow--2dp.top-space.relative
       / Cover
-      .big-padding.white-text.text-left.cover{ style:"background-image:url(#{ @user.cover.url(:medium) })" }
+      .big-padding.white-text.text-left.cover.relative{ style:"background-image:url(#{ @user.cover.url(:medium) })" }
         / Avatar
+        =render "usuarios/menu_avatar"
         .top-space
           =circle_img(@user.avatar.url(:medium), 100)
       %section.border-bottom.top-space
@@ -28,7 +29,8 @@
             %span= best_in_place_if current_user == @user, @user, :bio
       .top-space
         =form_for @user do |f|
-          =f.file_field :avatar
-          =f.file_field :cover
+          %div{style:"display:none;"}
+            =f.file_field :avatar
+            =f.file_field :cover
           .top-space
             =f.submit "Enviar"
