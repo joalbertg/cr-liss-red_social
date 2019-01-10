@@ -2,6 +2,7 @@
   =grid xs:10,sm:8,md:6,lg:4 do
     .white.mdl-shadow--2dp.top-space.relative
       / Cover usuario
+      .big-padding.white-text.text-left.cover{ style:"background-image:url(#{ @user.cover.url(:medium) })" }
       %section.border-bottom.top-space
         .row.middle-xs
           =grid class:"col-xs" do

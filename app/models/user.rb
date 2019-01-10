@@ -45,7 +45,7 @@ class User < ApplicationRecord
 
   has_attached_file :cover, 
                     styles: { medium: "800x600>", thumb: "400x300>" }, 
-                    default_url: "/images/:style/missing_cover.png"
+                    default_url: "/images/:style/missing_cover.jpg"
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\z/
 
   def self.from_omniauth(auth)
