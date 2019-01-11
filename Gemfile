@@ -8,6 +8,8 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7', '>= 5.0.7.1'
+# AASM for state machines
+gem 'aasm', '~> 5.0', '>= 5.0.1'
 # Add a comment with the structure that the model/table has
 gem 'annotate', '~> 2.7', '>= 2.7.4'
 # It is a gem that allows us to edit the fields without having to move from place.
@@ -16,6 +18,8 @@ gem 'best_in_place', '~> 3.1', '>= 3.1.1'
 gem 'coffee-rails', '~> 4.2'
 # Authentication
 gem 'devise', '~> 4.5'
+# It's a decorator that can wrap your models with presentation-related logic 
+gem 'draper', '~> 3.0', '>= 3.0.1'
 # grid - view
 gem 'flexbox_rb'
 # views 
@@ -32,7 +36,7 @@ gem 'omniauth-facebook'
 gem 'paperclip', '~> 6.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
-# This gem enabling asynchronous file uploads using the form with the multipart option.
+# This gem enabling asynchronous file uploads via Ajax
 gem 'remotipart', '~> 1.4', '>= 1.4.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

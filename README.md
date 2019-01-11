@@ -190,7 +190,7 @@
     end
   ```
 ### [Remotipart](https://github.com/JangoSteve/remotipart)
-  This gem enabling asynchronous file uploads using the form with the multipart option.
+  This gem enabling asynchronous file uploads via AJAX.
   ```sh
     gem 'remotipart', '~> 1.4', '>= 1.4.2'
   ```
@@ -201,4 +201,16 @@
     //= require best_in_place
     //= require jquery_ujs
     //= require jquery.remotipart
+  ```
+
+### [AASM - Ruby state machines](https://github.com/aasm/aasm)
+  AASM, a library for adding finite state machines to Ruby classes.
+  ```sh
+    gem 'aasm', '~> 5.0', '>= 5.0.1'
+  ```
+
+### [Draper Decorator](https://github.com/drapergem/draper)
+  It's a decorator that can wrap your models with presentation-related logic
+  ```sh
+    gem 'draper', '~> 3.0', '>= 3.0.1'
   ```
