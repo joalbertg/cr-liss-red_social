@@ -11,7 +11,7 @@ module ApplicationHelper
     User
   end
 
-  def circle_img(url, size=50)
+  def circle_img(url, size = 50)
     div = content_tag(:div, 
                       "", 
                       class: "circle cover", 
