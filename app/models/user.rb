@@ -36,6 +36,8 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { in: 3..12 }
   validate :validate_username_regex
   has_many :posts
+  # todas las amistades que he agregado
+  has_many :friendships  # todas las amistades en las que el user soy yo
 
   has_attached_file :avatar, 
                     styles: { medium: "300x300>", thumb: "100x100>" }, 

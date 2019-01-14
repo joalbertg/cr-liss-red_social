@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  user_id    :integer
-#  friend     :integer          not null
+#  friend_id  :integer          not null
 #  status     :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -12,8 +12,8 @@
 
 FactoryBot.define do
   factory :friendship do
-    user { nil }
-    friend { 1 }
+    association :user, factory: :user
+    association :friend, factory: :user
     status { "MyString" }
   end
 end

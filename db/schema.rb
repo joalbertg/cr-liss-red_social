@@ -17,10 +17,11 @@ ActiveRecord::Schema.define(version: 20190111024917) do
 
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "friend",     null: false
+    t.integer  "friend_id",  null: false
     t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["friend_id"], name: "index_friendships_on_friend_id", using: :btree
     t.index ["user_id"], name: "index_friendships_on_user_id", using: :btree
   end
 
@@ -59,5 +60,6 @@ ActiveRecord::Schema.define(version: 20190111024917) do
   end
 
   add_foreign_key "friendships", "users"
+  add_foreign_key "friendships", "users", column: "friend_id"
   add_foreign_key "posts", "users"
 end
