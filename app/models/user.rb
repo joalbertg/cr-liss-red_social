@@ -35,18 +35,17 @@ class User < ApplicationRecord
 
   validates :username, presence: true, uniqueness: true, length: { in: 3..12 }
   validate :validate_username_regex
-  
   has_many :posts
 
   has_attached_file :avatar, 
                     styles: { medium: "300x300>", thumb: "100x100>" }, 
                     default_url: "/images/:style/missing_avatar.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/(jpeg|jpg)\z/i
 
   has_attached_file :cover, 
                     styles: { medium: "800x600>", thumb: "400x300>" }, 
                     default_url: "/images/:style/missing_cover.jpg"
-  validates_attachment_content_type :cover, content_type: /\Aimage\/.*\z/
+  validates_attachment_content_type :cover, content_type: %i["image/jpeg" "image/gif" "image/png"]
 
   def self.from_omniauth(auth)
   # search if there is a user with these credentials
