@@ -10,6 +10,8 @@ end
 gem 'rails', '~> 5.0.7', '>= 5.0.7.1'
 # Add a comment with the structure that the model/table has
 gem 'annotate', '~> 2.7', '>= 2.7.4'
+# It is a gem that allows us to edit the fields without having to move from place.
+gem 'best_in_place', '~> 3.1', '>= 3.1.1'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Authentication
@@ -26,8 +28,12 @@ gem 'jquery-rails'
 gem 'pg', '>= 0.18', '< 2.0'
 # login/authentication with facebook
 gem 'omniauth-facebook'
+# library to attach files
+gem 'paperclip', '~> 6.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+# This gem enabling asynchronous file uploads using the form with the multipart option.
+gem 'remotipart', '~> 1.4', '>= 1.4.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
