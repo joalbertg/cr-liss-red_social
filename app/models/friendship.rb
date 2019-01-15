@@ -18,6 +18,20 @@ class Friendship < ApplicationRecord
 
   validates :user_id, uniqueness: { scope: :friend_id, message: 'Duplicate friendship' }
 
+  aasm column: "status" do
+    state :pending, initial: true
+    state :active
+    state :denied
+
+    event :accepted do # transition between states
+      transitions from: [:pending], to: [:active]
+    end
+
+    event :rejected do # transition between states
+      transitions from: [:pending, :active], to: [:denied]
+    end
+  end
+
   def self.friends?(user, friend)
     where(user: user, friend: friend)
     .or(where(user: friend, friend: user))
