@@ -1,5 +1,9 @@
 class FriendshipsController < ApplicationController
-  before_action :find_friend
+  before_action :find_friend, except: %i[index]
+
+  def index
+    @pending_friendships = Friendship.pending_for_user(current_user)
+  end
 
   def create
     friendship = Friendship.new(user: current_user, friend: @friend)

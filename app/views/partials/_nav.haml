@@ -7,6 +7,7 @@
     / Navigation
     %nav.mdl-navigation
       -if user_signed_in?
+        = link_to("Mis amigos", friendships_path, class: "white-text right-space")
         = link_to("Cerrar sesión", destroy_user_session_path, method: :delete, class: "white-text")
 
 .mdl-layout__drawer
