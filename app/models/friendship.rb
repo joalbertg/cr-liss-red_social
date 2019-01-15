@@ -11,6 +11,8 @@
 #
 
 class Friendship < ApplicationRecord
+  include AASM
+  
   belongs_to :user
   belongs_to :friend, class_name: 'User' # name of the class with which the relationship is mapped
 
