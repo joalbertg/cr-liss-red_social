@@ -62,6 +62,10 @@ class User < ApplicationRecord
     end
   end
 
+  def my_friend?(friend)
+    Friendship.friends?(self, friend)
+  end
+
   private
 
   def validate_username_regex

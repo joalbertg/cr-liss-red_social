@@ -12,10 +12,15 @@
 
 class Friendship < ApplicationRecord
   include AASM
-  
+
   belongs_to :user
   belongs_to :friend, class_name: 'User' # name of the class with which the relationship is mapped
 
   validates :user_id, uniqueness: { scope: :friend_id, message: 'Duplicate friendship' }
-  
+
+  def self.friends?(user, friend)
+    where(user: user, friend: friend)
+    .or(where(user: friend, friend: user))
+    .any? # .count > 0
+  end
 end

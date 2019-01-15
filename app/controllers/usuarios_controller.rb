@@ -3,7 +3,9 @@ class UsuariosController < ApplicationController
   before_action :authenticate_user!, only: [:update]
   before_action :authenticate_owner!, only: [:update]
 
-  def show; end
+  def show
+    @are_friends = ((current_user == @user) || (current_user.my_friend?(@user)))
+  end
 
   def update
     respond_to do |format|

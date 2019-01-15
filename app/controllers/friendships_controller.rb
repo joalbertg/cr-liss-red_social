@@ -5,7 +5,7 @@ class FriendshipsController < ApplicationController
     friendship = Friendship.new(user: current_user, friend: @friend)
 
     respond_to do |format|
-      if friendship.save
+      if ((current_user.id != @friend.id) && friendship.save)
         format.html { redirect_to @friend }
         format.js
       else
