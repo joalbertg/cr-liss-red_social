@@ -1,5 +1,9 @@
 .row.center-xs
   = grid xs: 10, md: 8 do
     .white.large-padding
-      = render @pending_friendships
- 
+      .border-bottom.text-left
+        %p Amistades pendientes
+        = render @pending_friendships
+        .top-space
+          %p Amistades aceptadas
+          = render @accepted_friendships

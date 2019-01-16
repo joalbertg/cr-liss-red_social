@@ -1,8 +1,10 @@
 class FriendshipsController < ApplicationController
-  before_action :find_friend, except: %i[index]
+  before_action :find_friend, except: %i[index update]
+  before_action :find_friendship, only: %i[update]
 
   def index
     @pending_friendships = Friendship.pending_for_user(current_user)
+    @accepted_friendships = Friendship.accepted_for_user(current_user)
   end
 
   def create
@@ -19,11 +21,30 @@ class FriendshipsController < ApplicationController
     end
   end
 
-  def update; end
+  def update
+    if (params[:status] == '1') 
+      @friendship.accepted!
+    elsif (params[:status] == '0') 
+      @friendship.rejected!
+    end
+
+    respond_to do |format|
+      format.html { redirect_to friendships_path  }
+      # format.js
+    end
+  end
 
   private
 
+  def friendship_params
+    require(:friendship).permit(:status)
+  end
+
   def find_friend
     @friend = User.find(params[:friend_id])
+  end
+
+  def find_friendship
+    @friendship = Friendship.find_by_id(params[:id])
   end
 end

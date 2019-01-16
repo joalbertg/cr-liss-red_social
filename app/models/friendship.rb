@@ -42,4 +42,8 @@ class Friendship < ApplicationRecord
   def self.pending_for_user(user)
     Friendship.pending.where(friend: user)
   end
+
+  def self.accepted_for_user(user)
+    Friendship.active.where(friend: user)
+  end
 end

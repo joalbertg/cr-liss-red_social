@@ -1,8 +1,10 @@
 .row.middle-xs
-  = grid  xs:2, md:1 do
+  = grid xs:2, md:1 do
     = circle_img friendship.user.avatar.url(:thumb), 50
-  = grid  xs:7, md:8, class: 'text-left' do
+  
+  = grid xs:6, md:7, class: 'text-left' do
     = friendship.user.username
-  = grid  xs:3 do
-    = link_to 'Aceptar', '#', class: 'right-space'
-    = link_to 'Denegar', '#', class: 'right-space'
+  
+  = grid xs:4 do
+    = link_to 'Aceptar', friendship_path(friendship, status: '1' ), method: :patch, class: 'right-space mdl-button mdl-js-button mdl-button--raised mdl-button--colored'
+    = link_to 'Denegar', friendship_path(friendship, status: '0' ), method: :patch, class: 'right-space mdl-button mdl-js-button mdl-button--raised mdl-button--accent'
