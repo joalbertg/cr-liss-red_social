@@ -36,8 +36,21 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { in: 3..12 }
   validate :validate_username_regex
   has_many :posts
-  # todas las amistades que he agregado
-  has_many :friendships  # todas las amistades en las que el user soy yo
+  
+  # amistades que he agreado en las que el user_id soy yo
+  has_many :friendships # amistades en las que yo agregué a la persona
+  
+  # amigos que he agregado (pedido solicitud de amistad)
+  has_many :friends_added, through: :friendships, source: :friend # amigos que yo agregué
+
+  # todas las personas que me han agregado, en las que soy el friend_id
+  has_many :followers, class_name: "Friendship", foreign_key: "friend_id"
+
+  has_many :friends_who_added, through: :followers, source: :user
+  # los amigos que me agregaron 
+
+
+
 
   has_attached_file :avatar, 
                     styles: { medium: "300x300>", thumb: "100x100>" }, 
