@@ -30,27 +30,23 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable,
+          :recoverable, :rememberable, :validatable, :omniauthable,
           omniauth_providers: %i[facebook]
 
   validates :username, presence: true, uniqueness: true, length: { in: 3..12 }
   validate :validate_username_regex
   has_many :posts
   
-  # amistades que he agreado en las que el user_id soy yo
-  has_many :friendships # amistades en las que yo agregué a la persona
+  # friendships that I have added in which the user_id is me
+  has_many :friendships # friendships in which I added the person
   
-  # amigos que he agregado (pedido solicitud de amistad)
-  has_many :friends_added, through: :friendships, source: :friend # amigos que yo agregué
+  # Friends that I have added (request friend request)
+  has_many :friends_added, through: :friendships, source: :friend # friends that I added
 
-  # todas las personas que me han agregado, en las que soy el friend_id
+  # all the people who have added me, in which I am the friend_id
   has_many :followers, class_name: "Friendship", foreign_key: "friend_id"
-
+  # the friends who added me
   has_many :friends_who_added, through: :followers, source: :user
-  # los amigos que me agregaron 
-
-
-
 
   has_attached_file :avatar, 
                     styles: { medium: "300x300>", thumb: "100x100>" }, 

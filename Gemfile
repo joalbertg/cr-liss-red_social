@@ -64,6 +64,8 @@ group :development, :test do
   gem 'dotenv-rails'
   # It allows to create objects of the BD for tests
   gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
+  # Fake data
+  gem 'faker', '~> 1.9', '>= 1.9.3'
   # debug
   gem 'pry-nav', '~> 0.2.4'
   gem 'pry-rails'
