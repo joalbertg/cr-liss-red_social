@@ -214,3 +214,9 @@
   ```sh
     gem 'draper', '~> 3.0', '>= 3.0.1'
   ```
+  
+### [Will Paginate](https://www.rubydoc.info/gems/will_paginate/3.1.6)
+  will_paginate provides a simple API for performing paginated queries
+  ```sh
+    gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+  ```

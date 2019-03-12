@@ -46,6 +46,9 @@ gem 'turbolinks', '~> 5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+# for performing paginated queries 
+gem 'will_paginate', '~> 3.1', '>= 3.1.6'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Use Redis adapter to run Action Cable in production
