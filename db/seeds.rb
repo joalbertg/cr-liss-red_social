@@ -17,10 +17,9 @@
     )
     puts "#{u} users created"
 end
-=end
 
 3.times do |f|
-    f << 3
+    f += 3
 
     Friendship.create(
         user_id: 2,
@@ -28,3 +27,15 @@ end
     )
     puts "#{f} friendships created"
 end
+
+
+6.times do |f|
+    f += 1
+
+    Post.create(
+        user_id: f,
+        body:  "#{f} posts created of User#{f}"
+    )
+    puts "#{f} posts created"
+end
+=end

@@ -5,14 +5,14 @@ class FriendshipsController < ApplicationController
   def index
     @pending_friendships = current_user.followers.pending.decorate
     @accepted_friendships = current_user.followers.active.decorate
-    @pending_requests = current_user.friendships.pending.decorate
+    @pending_requests = current_user.friendships.decorate
   end
 
   def create
     friendship = Friendship.new(user: current_user, friend: @friend)
 
     respond_to do |format|
-      if ((current_user.id != @friend.id) && friendship.save)
+      if (current_user.id != @friend.id) && friendship.save
         format.html { redirect_to @friend }
         format.js
       else
@@ -23,7 +23,7 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    if (params[:status] == '1') 
+    if params[:status] == '1'
       @friendship.accepted!
     elsif (params[:status] == '0') 
       @friendship.rejected!
