@@ -3,9 +3,9 @@ class FriendshipsController < ApplicationController
   before_action :find_friendship, only: %i[update]
 
   def index
-    @pending_friendships = current_user.followers.pending
-    @accepted_friendships = current_user.followers.active
-    @pending_requests = current_user.friendships.pending
+    @pending_friendships = current_user.followers.pending.decorate
+    @accepted_friendships = current_user.followers.active.decorate
+    @pending_requests = current_user.friendships.pending.decorate
   end
 
   def create
