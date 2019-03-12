@@ -1,9 +1,9 @@
 .row.middle-xs
   = grid xs:2, md:1 do
-    = circle_img friendship.user.avatar.url(:thumb), 50
+    = circle_img friendship.user_view.avatar.url(:thumb), 50
   
   = grid xs:6, md:7, class: 'text-left' do
-    = friendship.user.username
+    = friendship.user_view.username
   
   = grid xs:4 do
-    =friendship.status_or_buttons(current_user)
+    =friendship.status_or_buttons

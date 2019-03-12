@@ -1,8 +1,12 @@
 class FriendshipDecorator < Draper::Decorator
   delegate_all
 
-  def status_or_buttons(logged_user)
-    return buttons if object.pending? && object.user != logged_user
+  def user_view
+    (h.current_user == object.user) ? object.friend : object.user
+  end
+
+  def status_or_buttons
+    return buttons if object.pending? && object.user != h.current_user
     status
   end
 
