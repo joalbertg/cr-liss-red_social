@@ -28,32 +28,29 @@
 #  cover_updated_at       :datetime
 #
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
-         :validatable, :omniauthable, omniauth_providers: %i[facebook]
-
-  validates :username, presence: true, uniqueness: true, length: { in: 3..12 }
-  validate :validate_username_regex
   has_many :posts
-
   # friendships that I have added in which the user_id is me
   has_many :friendships # friendships in which I added the person
-
   # Friends that I have added (request friend request)
   # friends that I added
   has_many :friends_added, through: :friendships, source: :friend
-
   # all the people who have added me, in which I am the friend_id
   has_many :followers, class_name: 'Friendship', foreign_key: 'friend_id'
   # the friends who added me
   has_many :friends_who_added, through: :followers, source: :user
 
+  validates :username, presence: true, uniqueness: true, length: { in: 3..12 }
+  validate :validate_username_regex
+
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :validatable, :omniauthable, omniauth_providers: %i[facebook]
+
   has_attached_file :avatar,
                     styles: { medium: '300x300>', thumb: '100x100>' },
                     default_url: '/images/:style/missing_avatar.png'
-  validates_attachment_content_type :avatar,
-                                    content_type: %r{ /\Aimage\/(jpeg|jpg)\z/i }
+  validates_attachment_content_type  \
+    :avatar,
+    content_type: %r{ /\Aimage\/(jpeg|jpg)\z/i }
 
   has_attached_file :cover,
                     styles: { medium: '800x600>', thumb: '400x300>' },
@@ -61,6 +58,8 @@ class User < ApplicationRecord
   validates_attachment_content_type \
     :cover,
     content_type: %i["image/jpeg" "image/gif" "image/png"]
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   def friend_ids
     # i'm the user => friend_id
@@ -82,7 +81,7 @@ class User < ApplicationRecord
         user.email = auth.fetch('info').fetch('email')
         user.name = auth.fetch('info').fetch('name')
       end
-      user.password = Devise.friendly_token[0,20]
+      user.password = Devise.friendly_token[0, 20]
       # create a string that contains random characters
     end
   end

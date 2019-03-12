@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# users
 class UsuariosController < ApplicationController
   before_action :set_user
   before_action :authenticate_user!, only: [:update]
@@ -12,7 +15,7 @@ class UsuariosController < ApplicationController
       if @user.update(user_params)
         format.html { redirect_to @user }
         format.json { render :show }
-        format.js 
+        format.js
       else
         format.html { redirect_to @user, notice: @user.errors.full_messages }
         format.html { render @user.errors }
@@ -28,15 +31,16 @@ class UsuariosController < ApplicationController
 
   def authenticate_owner!
     return if current_user == @user
-    redirect_to root_path, notice: "No estás autorizado", status: :unauthorized
+
+    redirect_to root_path, notice: 'No estás autorizado', status: :unauthorized
   end
 
   def user_params
     params.require(:user).permit(
-      :name, 
-      :last_name, 
-      :username, 
-      :email, 
+      :name,
+      :last_name,
+      :username,
+      :email,
       :bio,
       :avatar,
       :cover

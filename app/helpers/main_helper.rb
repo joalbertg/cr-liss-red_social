@@ -1,2 +1,4 @@
-module MainHelper
-end
+# frozen_string_literal: true
+
+# helper
+module MainHelper; end

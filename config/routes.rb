@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
+# routes
 Rails.application.routes.draw do
-  
   resources :posts
-  resources :usuarios, as: :users, only: [:update, :show]
-  resources :friendships, only: [:create, :update, :index]
+  resources :usuarios, as: :users, only: %i[update show]
+  resources :friendships, only: %i[create update index]
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'

@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
+# friendship
 class FriendshipsController < ApplicationController
   before_action :find_friend, except: %i[index update]
-  before_action :find_friendship, only: %i[update]
+  before_action :find_friendship, only: :update
 
   def index
     @pending_friendships = current_user.followers.pending.decorate
@@ -14,23 +17,22 @@ class FriendshipsController < ApplicationController
     respond_to do |format|
       if (current_user.id != @friend.id) && friendship.save
         format.html { redirect_to @friend }
-        format.js
       else
         format.html { redirect_to @friend, notice: 'Error with friend request' }
-        format.js
       end
+      format.js
     end
   end
 
   def update
     if params[:status] == '1'
       @friendship.accepted!
-    elsif (params[:status] == '0') 
+    elsif params[:status] == '0'
       @friendship.rejected!
     end
 
     respond_to do |format|
-      format.html { redirect_to friendships_path  }
+      format.html { redirect_to friendships_path }
       # format.js
     end
   end
@@ -42,7 +44,7 @@ class FriendshipsController < ApplicationController
   end
 
   def find_friend
-    @friend = User.find(params[:friend_id])
+    @friend = User.find_by_id(params[:friend_id])
   end
 
   def find_friendship

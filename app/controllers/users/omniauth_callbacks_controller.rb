@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 module Users
+  # login with facebook
   class OmniauthCallbacksController < ApplicationController
-    # < Devise::OmniauthCallbacksController 
+    # < Devise::OmniauthCallbacksController
     skip_before_action :authenticate_user!
 
     def facebook
-      #raise request.env['omniauth.auth'].to_yaml
+      # raise request.env['omniauth.auth'].to_yaml
       @user = User.from_omniauth(request.env['omniauth.auth'])
 
       if @user.persisted? # return true if exits in the database
@@ -18,12 +21,13 @@ module Users
 
     def custom_sign_up
       @user = User.from_omniauth(session['devise.auth'])
-      render :edit and return unless @user.update(user_params)
+      render :edit && return unless @user.update(user_params)
       sign_in_and_redirect(@user, event: :authentication)
     end
 
     def failure
-      redirect_to(new_user_session_path, notice: "Hubo un error con el login. Intenta de nuevo")
+      redirect_to(new_user_session_path,
+                  notice: 'Hubo un error con el login. Intenta de nuevo')
     end
 
     private
@@ -31,8 +35,8 @@ module Users
     def user_params
       # Strong Params
       params.require(:user).permit(
-        :name, 
-        :username, 
+        :name,
+        :username,
         :email
       )
     end

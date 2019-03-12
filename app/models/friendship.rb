@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: friendships
@@ -10,15 +12,18 @@
 #  updated_at :datetime         not null
 #
 
+# friendship
 class Friendship < ApplicationRecord
   include AASM
 
   belongs_to :user
-  belongs_to :friend, class_name: 'User' # name of the class with which the relationship is mapped
+  belongs_to :friend, class_name: 'User'
+  # name of the class with which the relationship is mapped
 
-  validates :user_id, uniqueness: { scope: :friend_id, message: 'Duplicate friendship' }
+  validates :user_id,
+            uniqueness: { scope: :friend_id, message: 'Duplicate friendship' }
 
-  aasm column: "status" do
+  aasm column: 'status' do
     state :pending, initial: true
     state :active
     state :denied
@@ -28,15 +33,16 @@ class Friendship < ApplicationRecord
     end
 
     event :rejected do # transition between states
-      transitions from: [:pending, :active], to: [:denied]
+      transitions from: %i[pending active], to: [:denied]
     end
   end
 
   def self.friends?(user, friend)
-    return true if (user == friend)
+    return true if user == friend
+
     where(user: user, friend: friend)
-    .or(where(user: friend, friend: user))
-    .any? # .count > 0
+      .or(where(user: friend, friend: user))
+      .any? # .count > 0
   end
 
   def self.pending_for_user(user)
