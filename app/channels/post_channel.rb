@@ -3,14 +3,10 @@
 # PostChannel
 class PostChannel < ApplicationCable::Channel
   def subscribed
-    stream_from 'some_channel'
+    stream_from "posts_#{current_user.id}"
   end
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
-  end
-
-  def echo(data)
-    ActionCable.server.broadcast 'some_channel', data
   end
 end

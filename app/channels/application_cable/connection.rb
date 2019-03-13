@@ -15,7 +15,7 @@ module ApplicationCable
 
       return current_user if current_user
 
-      reject_unauthorized_connecction
+      reject_unauthorized_connection
     end
   end
 end
