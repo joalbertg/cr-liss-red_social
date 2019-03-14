@@ -23,6 +23,10 @@ class Post < ApplicationRecord
         .or(Post.where(user_id: user.user_ids))
   end
 
+  def user_ids
+    user.friend_ids + user.user_ids
+  end
+
   private
 
   def send_to_action_cable

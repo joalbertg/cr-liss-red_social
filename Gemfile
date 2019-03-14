@@ -21,17 +21,17 @@ gem 'devise', '~> 4.5'
 # It's a decorator that can wrap your models with presentation-related logic 
 gem 'draper', '~> 3.0', '>= 3.0.1'
 # grid - view
-gem 'flexbox_rb'
+gem 'flexbox_rb', '~> 0.5'
 # views 
 gem 'haml-rails', '~> 1.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # login/authentication with facebook
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '~> 5.0'
 # library to attach files
 gem 'paperclip', '~> 6.1'
 # Use Puma as the app server
@@ -64,14 +64,14 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   # configuration of local environment variables
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', '~> 2.5'
   # It allows to create objects of the BD for tests
   gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
   # Fake data
   gem 'faker', '~> 1.9', '>= 1.9.3'
   # debug
   gem 'pry-nav', '~> 0.2.4'
-  gem 'pry-rails'
+  gem 'pry-rails', '~> 0.3.8'
   # Test frameworks
   gem 'rspec-rails', '~> 3.8', '>= 3.8.1'
   # Specific help methods for Rails validations
@@ -81,7 +81,7 @@ end
 group :development do
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 2.0', '>= 2.0.2'
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'

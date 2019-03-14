@@ -11,6 +11,9 @@ module Notificable
   end
 
   def send_notification_to_users
-    
+    return unless respond_to?(:user_ids)
+
+    # JOB send notifications async
+    NotificationSenderJob.perform_now(self)
   end
 end

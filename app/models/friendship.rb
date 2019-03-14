@@ -38,6 +38,8 @@ class Friendship < ApplicationRecord
     end
   end
 
+  def user_ids; end
+
   def self.friends?(user, friend)
     return true if user == friend
 
