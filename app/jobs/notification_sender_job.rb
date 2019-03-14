@@ -2,7 +2,7 @@
 
 # notification job
 class NotificationSenderJob < ApplicationJob
-  queue_as :default
+  queue_as :notifications
 
   def perform(item)
     # Do something later

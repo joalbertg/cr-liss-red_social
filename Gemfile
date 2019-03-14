@@ -40,6 +40,8 @@ gem 'puma', '~> 3.0'
 gem 'remotipart', '~> 1.4', '>= 1.4.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# Sidekiq for jobs in the background
+gem 'sidekiq', '~> 5.2', '>= 5.2.5'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
