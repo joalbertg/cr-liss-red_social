@@ -11,6 +11,8 @@
 #  updated_at :datetime         not null
 #
 class Post < ApplicationRecord
+  include Notificable
+
   belongs_to :user
   scope :recent, -> { order('created_at desc') }
   after_create :send_to_action_cable
