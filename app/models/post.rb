@@ -29,16 +29,18 @@ class Post < ApplicationRecord
 
   private
 
-  def send_to_action_cable
+  def send_to_friends(ids)
     data = { message: to_html, action: 'new_post' }
+    ids.each { |id| data_broadcast(id, data) }
+  end
 
-    user.friend_ids.each do |friend_id|
-      ActionCable.server.broadcast "posts_#{friend_id}", data
-    end
+  def send_to_action_cable
+    send_to_friends(user.friend_ids)
+    send_to_friends(user.user_ids)
+  end
 
-    user.user_ids.each do |friend_id|
-      ActionCable.server.broadcast "posts_#{friend_id}", data
-    end
+  def data_broadcast(friend_id, data)
+    ActionCable.server.broadcast("posts_#{friend_id}", data)
   end
 
   def to_html
