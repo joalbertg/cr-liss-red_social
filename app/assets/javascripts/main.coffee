@@ -1,13 +1,16 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-# $(document).on 'turbolinks:load', ()->
-#  componentHandler.upgradeDom()
 window.snack = (options)->
   document.querySelector("#global-snackbar")
           .MaterialSnackbar.showSnackbar(options)
 
-$(document).on "page:load page:fetch ready", ()->
+$(document).on "page:load page:fetch ready turbolinks:load", ()->
+  componentHandler.upgradeDom()
+
+  $(".close-parent").on 'click', (ev)->
+    $(this).parent().slideUp()
+
   $('#notification').on 'click', (ev)->
     ev.preventDefault() if $('#notifications').hasClass('active')
     $('#notifications').toggleClass('active')

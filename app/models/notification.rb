@@ -19,6 +19,8 @@ class Notification < ApplicationRecord
   after_commit { NotificationBroadcastJob.perform_later(self) }
   scope :unviewed, -> { where(viewed: false) }
   scope :all_unviewed, ->(current_user) { where(user: current_user).unviewed }
+  scope :find_id, ->(id) { find_by_id(id) }
+  scope :latest, -> { order('created_at desc').limit(10) }
 
   def self.for_user(user_id)
     where(user_id: user_id).unviewed.count

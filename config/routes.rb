@@ -3,11 +3,10 @@
 require 'sidekiq/web'
 # routes
 Rails.application.routes.draw do
-  get '/notifications', to: 'notifications#index'
-
   resources :posts
   resources :usuarios, as: :users, only: %i[update show]
   resources :friendships, only: %i[create update index]
+  resources :notifications, only: %i[index update]
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
