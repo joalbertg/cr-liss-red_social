@@ -8,7 +8,13 @@ window.snack = (options)->
           .MaterialSnackbar.showSnackbar(options)
 
 $(document).on "page:load page:fetch ready", ()->
+  $('#notification').on 'click', (ev)->
+    ev.preventDefault() if $('#notifications').hasClass('active')
+    $('#notifications').toggleClass('active')
+    return $('#notifications').hasClass('active')
+
   $(".best_in_place").best_in_place()
+
   $('.mdl-layout').scroll ->
     if !window.loading && $('.mdl-layout').scrollTop() > ($(document).height() / 2) - 100
       window.loading = true
