@@ -36,6 +36,8 @@ gem 'omniauth-facebook', '~> 5.0'
 gem 'paperclip', '~> 6.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+# Use Redis adapter to run Action Cable in production
+gem 'redis', '~> 3.3', '>= 3.3.5'
 # This gem enabling asynchronous file uploads via Ajax
 gem 'remotipart', '~> 1.4', '>= 1.4.2'
 # Use SCSS for stylesheets
@@ -53,8 +55,6 @@ gem 'will_paginate', '~> 3.1', '>= 3.1.6'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment

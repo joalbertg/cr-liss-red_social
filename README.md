@@ -253,3 +253,9 @@
         mount Sidekiq::Web => '/sidekiq'
       end
   ```
+  ```sh
+    config/cable.yml
+      development:
+        adapter: redis
+        url: redis://localhost:6379/1
+  ```

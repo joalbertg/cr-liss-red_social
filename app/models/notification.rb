@@ -16,10 +16,10 @@
 class Notification < ApplicationRecord
   belongs_to :user
   belongs_to :item, polymorphic: true
-  after_create { NotificationBroadcastJob.perform_later(self) }
+  after_commit { NotificationBroadcastJob.perform_later(self) }
   scope :unviewed, -> { where(viewed: false) }
 
-  def self.for_users(user_id)
+  def self.for_user(user_id)
     where(user_id: user_id).unviewed.count
   end
 end
