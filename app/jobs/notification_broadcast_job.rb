@@ -4,10 +4,9 @@
 class NotificationBroadcastJob < ApplicationJob
   queue_as :default
 
-  def perform(notificaton)
-    id = notificaton.user_id
-    ActionCable.server.broadcast "notifications.#{id}",
+  def perform(user_id)
+    ActionCable.server.broadcast "notifications.#{user_id}",
                                  action: 'new_notification',
-                                 message: Notification.for_user(id)
+                                 message: Notification.for_user(user_id)
   end
 end

@@ -7,6 +7,7 @@ App.notification = App.cable.subscriptions.create "NotificationChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
+
     if data.action == 'new_notification'
       snack(
         message: 'Tienes una nueva notificación',

@@ -13,13 +13,6 @@ class NotificationsController < ApplicationController
 
   def update
     @notification = Notification.find_id(params[:id])
-    message =
-      if @notification.update(notification_params)
-        'Notificación vista'
-      else
-        'Hubo un error'
-      end
-
     redirect_to :back, notice: message
   end
 
@@ -27,5 +20,11 @@ class NotificationsController < ApplicationController
 
   def notification_params
     params.require(:notification).permit(:viewed)
+  end
+
+  def message
+    return 'Notificación vista' if @notification.update(notification_params)
+
+    'Hubo un error'
   end
 end
