@@ -16,8 +16,17 @@ class NotificationSenderJob < ApplicationJob
   end
 
   def item(id, class_name)
-    return Post.find_by_id(id) if class_name == 'Post'
+    obj = to_class(class_name)
+    return unless obj
 
-    Friendship.find_by_id(id)
+    obj.find_by_id(id)
+  end
+
+  def to_class(class_name)
+    # Post Friendship
+    my_const = class_name.safe_constantize
+    my_const.is_a?(Class) ? my_const : nil
+  rescue NameError
+    nil
   end
 end

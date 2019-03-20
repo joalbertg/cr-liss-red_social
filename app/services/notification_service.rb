@@ -7,11 +7,10 @@ class NotificationService
   end
 
   def create_object
-    if @notification.save
-      send_notification_to_broadcast_job
-      return true
-    end
-    false
+    return false unless @notification.save
+
+    send_notification_to_broadcast_job
+    true
   end
 
   def object

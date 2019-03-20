@@ -8,12 +8,11 @@ class PostService
   end
 
   def create_object
-    if @post.save
-      @post.send_notification_to_users # concern
-      send_to_action_cable
-      return true
-    end
-    false
+    return false unless @post.save
+
+    @post.send_notification_to_users # concern
+    send_to_action_cable
+    true
   end
 
   def object

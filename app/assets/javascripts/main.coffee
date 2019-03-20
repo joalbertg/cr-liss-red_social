@@ -5,7 +5,7 @@ window.snack = (options)->
   document.querySelector("#global-snackbar")
           .MaterialSnackbar.showSnackbar(options)
 
-$(document).on "page:load page:fetch ready turbolinks:load", ()->
+$(document).on 'turbolinks:load', ()->
   componentHandler.upgradeDom()
 
   $(".close-parent").on 'click', (ev)->
