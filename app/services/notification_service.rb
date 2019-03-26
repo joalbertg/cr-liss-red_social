@@ -21,6 +21,34 @@ class NotificationService
     @notification.errors
   end
 
+  class << self
+    def generate_item(id, class_name)
+      obj = item(id, class_name)
+      obj.user_ids.each { |user_id| generate(user_id, obj) }
+    end
+
+    private
+
+    def item(id, class_name)
+      obj = to_class(class_name)
+      return unless obj
+
+      obj.find_by_id(id)
+    end
+
+    def generate(user_id, item)
+      new(item, user_id).create_object
+    end
+
+    def to_class(class_name)
+      # Post Friendship
+      my_const = class_name.safe_constantize
+      my_const.is_a?(Class) ? my_const : nil
+    rescue NameError
+      nil
+    end
+  end
+
   private
 
   def send_notification_to_broadcast_job
