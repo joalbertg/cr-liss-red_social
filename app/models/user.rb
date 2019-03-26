@@ -61,6 +61,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
+  def unviewed_notifications_count
+    Notification.for_user(id)
+  end
+
   def friend_ids
     # i'm the user => friend_id
     Friendship.active.where(user: self).pluck(:friend_id)

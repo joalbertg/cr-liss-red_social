@@ -66,6 +66,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.4)
+    connection_pool (2.2.2)
     crass (1.0.4)
     devise (4.5.0)
       bcrypt (~> 3.0)
@@ -179,6 +180,8 @@ GEM
       pry (>= 0.10.4)
     puma (3.12.0)
     rack (2.0.6)
+    rack-protection (2.0.5)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.7.1)
@@ -208,6 +211,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redis (3.3.5)
     remotipart (1.4.2)
     request_store (1.4.1)
       rack (>= 1.4)
@@ -247,6 +251,11 @@ GEM
     sexp_processor (4.11.0)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
+    sidekiq (5.2.5)
+      connection_pool (~> 2.2, >= 2.2.2)
+      rack (>= 1.5.0)
+      rack-protection (>= 1.5.0)
+      redis (>= 3.3.5, < 5)
     slop (3.6.0)
     spring (2.0.2)
       activesupport (>= 4.2)
@@ -296,27 +305,29 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise (~> 4.5)
-  dotenv-rails
+  dotenv-rails (~> 2.5)
   draper (~> 3.0, >= 3.0.1)
   factory_bot_rails (~> 4.11, >= 4.11.1)
   faker (~> 1.9, >= 1.9.3)
-  flexbox_rb
+  flexbox_rb (~> 0.5)
   haml-rails (~> 1.0)
   jbuilder (~> 2.5)
-  jquery-rails
+  jquery-rails (~> 4.3, >= 4.3.3)
   listen (~> 3.0.5)
-  omniauth-facebook
+  omniauth-facebook (~> 5.0)
   paperclip (~> 6.1)
   pg (>= 0.18, < 2.0)
   pry-nav (~> 0.2.4)
-  pry-rails
+  pry-rails (~> 0.3.8)
   puma (~> 3.0)
   rails (~> 5.0.7, >= 5.0.7.1)
+  redis (~> 3.3, >= 3.3.5)
   remotipart (~> 1.4, >= 1.4.2)
   rspec-rails (~> 3.8, >= 3.8.1)
   sass-rails (~> 5.0)
   shoulda-matchers (~> 3.1, >= 3.1.2)
-  spring
+  sidekiq (~> 5.2, >= 5.2.5)
+  spring (~> 2.0, >= 2.0.2)
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
   tzinfo-data

@@ -220,3 +220,42 @@
   ```sh
     gem 'will_paginate', '~> 3.1', '>= 3.1.6'
   ```
+
+### [Sidekiq](https://github.com/mperham/sidekiq/wiki/Active-Job)
+  Simple, efficient background processing for Ruby.
+  ```sh
+    gem 'sidekiq', '~> 5.2', '>= 5.2.5'
+  ```
+  ```sh
+  config/initializers/sidekiq.rb
+    Rails.application.config.active_job.queue_adapter = :sidekiq
+  ```
+  ```sh
+	  config/sidekiq.yml
+      :concurrency: 5
+      staging:
+        :concurrency: 10
+      production:
+        :concurrency: 20
+      :queues:
+        - default
+        - notifications
+  ```
+  ```sh
+	  execute:
+      sidekiq -C config/sidekiq.yml
+  ```
+  ```sh
+	  config/routes.rb
+      require 'sidekiq/web'
+      Rails.application.routes.draw do
+        ....
+        mount Sidekiq::Web => '/sidekiq'
+      end
+  ```
+  ```sh
+    config/cable.yml
+      development:
+        adapter: redis
+        url: redis://localhost:6379/1
+  ```

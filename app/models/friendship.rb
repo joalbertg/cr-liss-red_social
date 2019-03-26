@@ -14,6 +14,7 @@
 
 # friendship
 class Friendship < ApplicationRecord
+  include Notificable
   include AASM
 
   belongs_to :user
